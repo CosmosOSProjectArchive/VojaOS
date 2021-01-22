@@ -16,9 +16,10 @@ namespace VOS
             string inner_message = "";
 
             Cosmos.System.PCSpeaker.Beep((uint)Cosmos.System.Notes.GS6, 250);
+            
+            Console.WriteLine("System halted!\n");
+            Console.WriteLine("Error: \n" + ex);
 
-            Console.WriteLine("ERROR! System Halted. Crash log:\n");
-            Console.WriteLine("Exception (cause of the crash): ", ex);
             if (ex.InnerException != null)
             {
                 inner_message = ex.InnerException.Message;
@@ -27,10 +28,11 @@ namespace VOS
             Console.WriteLine("Looks like the system has crashed!\n");
             Console.WriteLine("If this is the first time you've seen this error screen, press any key to restart your computer.\n\nIf this screen appears again, follow these steps:");
             Console.WriteLine("Try to reinstall Vojislav's OS on your computer or Virtual Machine.\n\nYou can also try to reset the filesystem with a blank .vmdk (Virtual Machine Disk) file if you're on a Virtual Machine and if not by formatting your device.");
-            Console.WriteLine("If problems continue, you can contact me at example.com");
+            Console.WriteLine("If problems continue, you can contact me at vojadabic@gmail.com.");
             Console.WriteLine();
+            Console.BackgroundColor = ConsoleColor.Black;
             Console.WriteLine("Press any key to reboot...");
-
+            Console.BackgroundColor = ConsoleColor.Red;
             Console.ReadKey();
 
             Sys.Power.Reboot();
@@ -41,7 +43,7 @@ namespace VOS
 
             //Kernel.running = false;
 
-            Console.BackgroundColor = ConsoleColor.Red;
+            Console.BackgroundColor = ConsoleColor.Blue;
             Console.Clear();
 
             Console.WriteLine("CPU Exception x" + ctxinterrupt + " occured!:");
@@ -54,7 +56,7 @@ namespace VOS
             Console.WriteLine("Looks like the system has crashed!\n");
             Console.WriteLine("If this is the first time you've seen this error screen, press any key to restart your computer.\n\nIf this screen appears again, follow these steps:");
             Console.WriteLine("Try to reinstall Vojislav's OS on your computer or Virtual Machine.\n\nYou can also try to reset the filesystem with a blank .vmdk (Virtual Machine Disk) file if you're on a Virtual Machine and if not by formatting your device.");
-            Console.WriteLine("If problems continue, you can contact me at example.com");
+            Console.WriteLine("If problems continue, you can contact me at vojadabic@gmail.com.");
             Console.WriteLine();
             Console.WriteLine("Press any key to reboot...");
 
